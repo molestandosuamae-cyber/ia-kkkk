@@ -1,0 +1,6 @@
+name = "resolveai"
+compatibility_date = "2026-09-27"
+
+# O binding Workers AI pode ser configurado no projeto Pages pelo
+# painel Workers & Pages > seu projeto > Settings > Bindings > Add > Workers AI.
+# Use o nome de binding: AI

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ResolveAI — Gerador de Soluções</title>
+  <meta name="description" content="Transforme qualquer problema em uma solução prática com IA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <header class="nav">
+    <div class="brand"><span class="brand-dot"></span>Resolve<span>AI</span></div>
+    <div class="nav-actions">
+      <button class="ghost" id="historyBtn">Histórico</button>
+      <button class="pill" id="clearBtn">Nova solução</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">✦ IA PARA PROBLEMAS DO DIA A DIA</div>
+      <h1>Descreva o problema.<br><span>A IA cria a solução.</span></h1>
+      <p class="sub">Conte o que está acontecendo e receba um plano prático, checklist, calendário ou planilha personalizada em segundos.</p>
+
+      <div class="composer">
+        <div class="composer-top">
+          <div class="ai-avatar">✦</div>
+          <textarea id="problem" maxlength="1200" placeholder="Ex.: Ganho R$ 2.500 por mês, tenho muitas parcelas e nunca consigo guardar dinheiro..."></textarea>
+        </div>
+        <div class="composer-bottom">
+          <div class="suggestions">
+            <button data-example="Quero organizar minhas finanças e descobrir para onde meu dinheiro está indo.">💰 Finanças</button>
+            <button data-example="Tenho uma loja pequena e não sei quanto cobrar pelos meus produtos.">🏪 Negócio</button>
+            <button data-example="Tenho uma prova em 30 dias e preciso organizar meus estudos.">📚 Estudos</button>
+            <button data-example="Tenho pouco tempo e quero organizar melhor minha rotina.">⏰ Rotina</button>
+          </div>
+          <button class="generate" id="generateBtn"><span>Gerar solução</span><b>→</b></button>
+        </div>
+        <div class="charcount"><span id="charcount">0</span>/1200</div>
+      </div>
+
+      <div class="trust"><span>●</span> Sua descrição fica no seu navegador neste MVP · Não coloque senhas ou dados bancários.</div>
+    </section>
+
+    <section class="result-wrap hidden" id="resultWrap">
+      <div class="result-head">
+        <div>
+          <div class="eyebrow">SUA SOLUÇÃO</div>
+          <h2 id="resultTitle">Sua solução personalizada</h2>
+        </div>
+        <div class="result-actions">
+          <button class="ghost" id="copyBtn">Copiar</button>
+          <button class="ghost" id="downloadBtn">Baixar .txt</button>
+        </div>
+      </div>
+
+      <div class="result-grid">
+        <aside class="result-side">
+          <div class="mini-card"><span>Categoria</span><strong id="category">—</strong></div>
+          <div class="mini-card"><span>Formato</span><strong id="format">—</strong></div>
+          <div class="mini-card"><span>Prioridade</span><strong id="priority">—</strong></div>
+          <div class="mini-card"><span>Próximo passo</span><strong id="nextStep">—</strong></div>
+        </aside>
+        <article class="solution-card">
+          <div id="solutionContent"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="how">
+      <div class="eyebrow">COMO FUNCIONA</div>
+      <h2>Do problema à solução em 3 passos.</h2>
+      <div class="steps">
+        <div class="step"><i>01</i><h3>Conte o problema</h3><p>Explique com suas palavras. Quanto mais contexto, mais personalizada fica a solução.</p></div>
+        <div class="step"><i>02</i><h3>A IA organiza</h3><p>Ela identifica o tipo de problema, define prioridades e escolhe o formato mais útil.</p></div>
+        <div class="step"><i>03</i><h3>Você executa</h3><p>Receba passos claros, checklists e modelos para começar imediatamente.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast"></div>
+  <div class="modal hidden" id="historyModal">
+    <div class="modal-box">
+      <div class="modal-head"><h3>Histórico local</h3><button id="closeHistory">×</button></div>
+      <div id="historyList" class="history-list"></div>
+      <button class="danger" id="clearHistory">Apagar histórico</button>
+    </div>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
